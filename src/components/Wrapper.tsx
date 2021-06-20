@@ -1,6 +1,7 @@
 import { Settings } from './Settings';
 import react from 'react';
 import { Counter } from './Counter';
+import { useState } from 'react';
 
 type TWarrior = {
     name: string;
@@ -19,7 +20,18 @@ type TSettings = {
     sprint: TSprint;
 }
 
+const defaultSettings: TSettings = {
+    warriors: [],
+    sprint: {
+        name: '',
+        length: 0,
+        pointsPerWorkday: 0,
+    }
+};
+
 export const Wrapper = () => {
+    const [settings, setSettings] = useState<TSettings>(defaultSettings);
+
     return <div>
         <h2>I'm the wrapper</h2>
         <Settings />
