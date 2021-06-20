@@ -1,5 +1,6 @@
 import react from 'react';
 import { TSettings } from './Wrapper';
+import { useForm } from 'react-hook-form';
 
 type SettingsProps = {
     settings: TSettings,
@@ -7,5 +8,16 @@ type SettingsProps = {
 }
 
 export const Settings = (props: SettingsProps) => {
-    return <div>I'm the settings</div>
+    const { settings, setSettings } = props;
+    const { handleSubmit, register } = useForm();
+
+    const onSubmit = (newSettings: TSettings) => {
+        console.log(newSettings);
+        setSettings(newSettings)
+    }
+
+    return <div>
+        <header>Settings</header>
+        <form onSubmit={handleSubmit(onSubmit)}></form>
+    </div>
 }
