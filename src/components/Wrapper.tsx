@@ -34,7 +34,7 @@ export const Wrapper = () => {
 
     return <div>
         <h2>I'm the wrapper</h2>
-        <Settings />
+        <Settings settings={settings} setSettings={setSettings} />
         <Counter />
     </div>;
 }
