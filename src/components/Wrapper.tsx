@@ -3,19 +3,19 @@ import react from 'react';
 import { Counter } from './Counter';
 import { useState } from 'react';
 
-type TWarrior = {
+export type TWarrior = {
     name: string;
     slug: string;
     color: string;
 }
 
-type TSprint = {
+export type TSprint = {
     name: string;
     length: number;
     pointsPerWorkday: number;
 }
 
-type TSettings = {
+export type TSettings = {
     warriors: TWarrior[];
     sprint: TSprint;
 }
