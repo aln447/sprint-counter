@@ -1,10 +1,10 @@
 import react from 'react';
-import { UseFormRegister } from 'react-hook-form';
+import { FieldPath, UseFormRegister } from 'react-hook-form';
 import { TSettings } from '../Wrapper';
 
 type TextInputProps = {
     register: UseFormRegister<TSettings>;
-    name: string;
+    name: FieldPath<TSettings>;
 }
 
 export const TextInput = ({ name, register }: TextInputProps) => {
