@@ -47,8 +47,10 @@ export const Settings = (props: SettingsProps) => {
                 Length (days)
                 <NumberInput name='sprint.length' register={register} />
             </label>
-            {fields.map((field, index) => <WarriorForm key={field.id} index={index} register={register} />)}
-            <button onClick={() => append(emptyWarrior)}>Add Warrior</button>
+            <div className="warriors">
+                {fields.map((field, index) => <WarriorForm key={field.id} index={index} register={register} />)}
+                <button onClick={() => append(emptyWarrior)}>Add Warrior</button>
+            </div>
             <button type="submit">Save</button>
         </form>
     </div>
