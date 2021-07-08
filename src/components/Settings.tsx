@@ -28,7 +28,7 @@ const defaultSprintSettings: TSettings = {
 export const Settings = (props: SettingsProps) => {
     const { settings, setSettings } = props;
     const { handleSubmit, register, control } = useForm({ defaultValues: defaultSprintSettings });
-    const { fields, append } = useFieldArray({
+    const { fields, append, remove } = useFieldArray({
         control,
         name: 'warriors'
     })
@@ -48,7 +48,12 @@ export const Settings = (props: SettingsProps) => {
                 <NumberInput name='sprint.length' register={register} />
             </label>
             <div className="warriors">
-                {fields.map((field, index) => <WarriorForm key={field.id} index={index} register={register} />)}
+                {fields.map((field, index) => <WarriorForm
+                    key={field.id}
+                    index={index}
+                    register={register}
+                    remove={remove}
+                />)}
                 <button onClick={() => append(emptyWarrior)}>Add Warrior</button>
             </div>
             <button type="submit">Save</button>

@@ -6,10 +6,11 @@ import { NumberInput } from './inputs/NumberInput';
 
 type TWarriorFormProps = {
     register: UseFormRegister<TSettings>;
+    remove: (index: number) => void;
     index: number;
 };
 
-export const WarriorForm = ({ index, register }: TWarriorFormProps) => {
+export const WarriorForm = ({ index, register, remove }: TWarriorFormProps) => {
     return <div>
         <label htmlFor={`warriors.${index}.name`}>
             <TextInput name={`warriors.${index}.name`} register={register} />
@@ -20,5 +21,6 @@ export const WarriorForm = ({ index, register }: TWarriorFormProps) => {
         <label htmlFor={`warriors.${index}.color`}>
             <TextInput name={`warriors.${index}.color`} register={register} />
         </label>
+        <button onClick={() => remove(index)}>Delete</button>
     </div>
 }
