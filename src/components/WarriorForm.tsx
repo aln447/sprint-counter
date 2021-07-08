@@ -3,6 +3,7 @@ import { TSettings } from './Wrapper';
 import { useForm, UseFormRegister } from 'react-hook-form';
 import { TextInput } from './inputs/TextInput';
 import { NumberInput } from './inputs/NumberInput';
+import { ColorInput } from './inputs/ColorInput';
 
 type TWarriorFormProps = {
     register: UseFormRegister<TSettings>;
@@ -19,7 +20,7 @@ export const WarriorForm = ({ index, register, remove }: TWarriorFormProps) => {
             <TextInput name={`warriors.${index}.pointsPerSprint`} register={register} />
         </label>
         <label htmlFor={`warriors.${index}.color`}>
-            <TextInput name={`warriors.${index}.color`} register={register} />
+            <ColorInput name={`warriors.${index}.color`} register={register} />
         </label>
         <button onClick={() => remove(index)}>Delete</button>
     </div>
