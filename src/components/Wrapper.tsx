@@ -2,7 +2,7 @@ import { Settings } from './Settings';
 import react from 'react';
 import { Counter } from './Counter';
 import { useState } from 'react';
-import styled from 'styled-components';
+import { StyledWrapper } from '../styled/StyledWrapper';
 
 export type TWarrior = {
     name: string;
@@ -28,12 +28,6 @@ const defaultSettings: TSettings = {
         length: 0,
     }
 };
-
-const StyledWrapper = styled.div`
-    div {
-        margin: 5px;
-    }
-`;
 
 export const Wrapper = () => {
     const [settings, setSettings] = useState<TSettings>(defaultSettings);
