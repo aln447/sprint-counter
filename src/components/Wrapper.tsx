@@ -7,7 +7,7 @@ export type TWarrior = {
     name: string;
     slug: string;
     color: string;
-    pointsPerWorkday: number;
+    pointsPerSprint: number;
 }
 
 export type TSprint = {
