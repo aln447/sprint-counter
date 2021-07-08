@@ -7,12 +7,12 @@ export type TWarrior = {
     name: string;
     slug: string;
     color: string;
+    pointsPerWorkday: number;
 }
 
 export type TSprint = {
     name: string;
     length: number;
-    pointsPerWorkday: number;
 }
 
 export type TSettings = {
@@ -25,7 +25,6 @@ const defaultSettings: TSettings = {
     sprint: {
         name: '',
         length: 0,
-        pointsPerWorkday: 0,
     }
 };
 
