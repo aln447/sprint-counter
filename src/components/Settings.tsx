@@ -1,8 +1,9 @@
 import react from 'react';
 import { TSettings } from './Wrapper';
-import { useForm } from 'react-hook-form';
+import { useFieldArray, useForm } from 'react-hook-form';
 import { TextInput } from './inputs/TextInput';
 import { NumberInput } from './inputs/NumberInput';
+import { WarriorForm } from './WarriorForm';
 
 type SettingsProps = {
     settings: TSettings,
@@ -19,8 +20,11 @@ const defaultSprintSettings: TSettings = {
 
 export const Settings = (props: SettingsProps) => {
     const { settings, setSettings } = props;
-    const { handleSubmit, register } = useForm({ defaultValues: defaultSprintSettings });
-
+    const { handleSubmit, register, control } = useForm({ defaultValues: defaultSprintSettings });
+    const { fields } = useFieldArray({
+        control,
+        name: 'warriors'
+    })
     const onSubmit = (newSettings: any) => {
         console.log(newSettings);
     }
@@ -36,8 +40,7 @@ export const Settings = (props: SettingsProps) => {
                 Length (days)
                 <NumberInput name='sprint.length' register={register} />
             </label>
-
-
+            {fields.map((field, index) => <WarriorForm key={field.id} index={index} register={register} />)}
             <button type="submit">Save</button>
         </form>
     </div>
