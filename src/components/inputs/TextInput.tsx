@@ -5,8 +5,9 @@ import { TSettings } from '../Wrapper';
 type TextInputProps = {
     register: UseFormRegister<TSettings>;
     name: FieldPath<TSettings>;
+    required: boolean;
 }
 
-export const TextInput = ({ name, register }: TextInputProps) => {
-    return (<input type="text" {...register(name)} />);
+export const TextInput = ({ name, register, required }: TextInputProps) => {
+    return (<input type="text" {...register(name, { required: required ? "This field is required" : false })} />);
 }

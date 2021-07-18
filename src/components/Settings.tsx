@@ -5,6 +5,7 @@ import { TextInput } from './inputs/TextInput';
 import { NumberInput } from './inputs/NumberInput';
 import { WarriorForm } from './WarriorForm';
 import styled from 'styled-components';
+import { ErrorMessage } from './utils/ErrorMessage';
 
 type SettingsProps = {
     settings: TSettings,
@@ -77,12 +78,13 @@ const StyledSettings = styled.div`
 
 export const Settings = (props: SettingsProps) => {
     const { settings, setSettings } = props;
-    const { handleSubmit, register, control } = useForm({ defaultValues: defaultSprintSettings });
+    const { handleSubmit, register, control, formState: { errors } } = useForm({ defaultValues: defaultSprintSettings });
     const { fields, append, remove } = useFieldArray({
         control,
         name: 'warriors'
     })
     const onSubmit = (newSettings: any) => {
+
         console.log(newSettings);
     }
 
@@ -91,7 +93,8 @@ export const Settings = (props: SettingsProps) => {
         <form onSubmit={handleSubmit(onSubmit)}>
             <label htmlFor="sprint.name">
                 Sprint Name
-                <TextInput name='sprint.name' register={register} />
+                <TextInput name='sprint.name' register={register} required={true} />
+                <ErrorMessage error={errors.sprint?.name} />
             </label>
             <label htmlFor="sprint.length">
                 Length (days)
