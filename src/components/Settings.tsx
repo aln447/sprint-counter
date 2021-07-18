@@ -98,6 +98,7 @@ export const Settings = (props: SettingsProps) => {
                 <NumberInput name='sprint.length' register={register} />
             </label>
             <div className="warriors">
+                {fields.length === 0 && <p>No warriors yet. Add some :)</p>}
                 {fields.map((field, index) => <WarriorForm
                     key={field.id}
                     index={index}
