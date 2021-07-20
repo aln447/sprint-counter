@@ -29,8 +29,10 @@ const defaultSprintSettings: TSettings = {
 
 const StyledSettings = styled.div`
     padding: 10px;
-    border-radius: 2px;
-    box-shadow: 2px 3px 9px 0px #0000006e;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px;
+    background-color: #456672;
 
     label {
         width: 100%;
