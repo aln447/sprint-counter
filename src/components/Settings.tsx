@@ -91,11 +91,13 @@ export const Settings = (props: SettingsProps) => {
     return <StyledSettings>
         <h2>Settings</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
-            <label htmlFor="sprint.name">
-                Sprint Name
-                <TextInput name='sprint.name' register={register} required={true} />
-                <ErrorMessage error={errors.sprint?.name} />
-            </label>
+            <TextInput
+                labelName="Sprint Name"
+                name="sprint.name"
+                required={true}
+                errorField={errors.sprint?.name}
+                register={register}
+            />
             <label htmlFor="sprint.length">
                 Length (days)
                 <NumberInput name='sprint.length' register={register} />

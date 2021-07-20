@@ -13,12 +13,8 @@ type TWarriorFormProps = {
 
 export const WarriorForm = ({ index, register, remove }: TWarriorFormProps) => {
     return <div>
-        <label htmlFor={`warriors.${index}.name`}>
-            <TextInput name={`warriors.${index}.name`} register={register} required={true} />
-        </label>
-        <label htmlFor={`warriors.${index}.pointsPerSprint`}>
-            <TextInput name={`warriors.${index}.pointsPerSprint`} register={register} required={true} />
-        </label>
+        <TextInput name={`warriors.${index}.name`} register={register} required={true} labelName="Name" />
+        <TextInput name={`warriors.${index}.pointsPerSprint`} register={register} required={true} labelName="Points per sprint" />
         <label htmlFor={`warriors.${index}.color`}>
             <ColorInput name={`warriors.${index}.color`} register={register} />
         </label>
