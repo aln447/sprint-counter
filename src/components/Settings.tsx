@@ -42,7 +42,16 @@ const StyledSettings = styled.div`
         input {
             margin-left: 20px;
             height: 20px;
-            border: none;
+            background-color: transparent;
+            border: 2px solid var(--wht);
+            color: var(--wht);
+            border-radius: 5px;
+
+            &:active,
+            &:focus {
+                background: var(--dkbl1);
+                outline: none;
+            }
         }
     }
 
