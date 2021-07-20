@@ -2,13 +2,13 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
     html {
-        --bg: #80808029;
-        --text: #000000d9;
+        --text: white;
+        --background: #314357;
 
         font-family: monospace;
         width: 100%;
         height: 100%;
-        background: var(--bg);
+        background-color: var(--background);
         color: var(--text);
     }
 `;
