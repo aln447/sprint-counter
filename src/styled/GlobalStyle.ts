@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
     html {
-        --text: white;
+        --wht: white;
         --dkbl1: #314357;
         --dkbl2: #456672;
         --orng1: #e3b587;
@@ -13,6 +13,6 @@ export const GlobalStyle = createGlobalStyle`
         width: 100%;
         height: 100%;
         background-color: var(--dkbl1);
-        color: var(--text);
+        color: var(--wht);
     }
 `;
