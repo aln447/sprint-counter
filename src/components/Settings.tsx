@@ -32,7 +32,7 @@ const StyledSettings = styled.div`
     border-radius: 5px;
     margin: 10px;
     padding: 20px;
-    background-color: #456672;
+    background-color: var(--dkbl2);
 
     label {
         width: 100%;
