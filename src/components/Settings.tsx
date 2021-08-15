@@ -30,8 +30,7 @@ export const Settings = (props: SettingsProps) => {
         name: 'warriors'
     })
     const onSubmit = (newSettings: any) => {
-
-        console.log(newSettings);
+        setSettings(newSettings);
     }
 
     return <StyledSettings>
