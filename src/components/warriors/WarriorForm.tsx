@@ -18,7 +18,6 @@ export const WarriorForm = ({ index, register, remove }: TWarriorFormProps) => {
                 name={`warriors.${index}.name`}
                 register={register}
                 required={true}
-                labelName="Name"
             />
         </td>
         <td>
@@ -26,7 +25,6 @@ export const WarriorForm = ({ index, register, remove }: TWarriorFormProps) => {
                 name={`warriors.${index}.pointsPerSprint`}
                 register={register}
                 required={true}
-                labelName="Points per sprint"
             />
         </td>
         <td>
