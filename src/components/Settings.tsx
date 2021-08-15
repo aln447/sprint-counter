@@ -11,6 +11,7 @@ import { Warriors } from './warriors/Warriors';
 type SettingsProps = {
     settings: TSettings,
     setSettings: (settings: TSettings) => void;
+    setShowSettings: (show: boolean) => void;
 }
 
 const defaultSprintSettings: TSettings = {
@@ -23,7 +24,7 @@ const defaultSprintSettings: TSettings = {
 
 
 export const Settings = (props: SettingsProps) => {
-    const { settings, setSettings } = props;
+    const { settings, setSettings, setShowSettings } = props;
     const { handleSubmit, register, control, formState: { errors } } = useForm({ defaultValues: defaultSprintSettings });
     const { fields, append, remove } = useFieldArray({
         control,
@@ -31,6 +32,7 @@ export const Settings = (props: SettingsProps) => {
     })
     const onSubmit = (newSettings: any) => {
         setSettings(newSettings);
+        setShowSettings(false);
     }
 
     return <StyledSettings>

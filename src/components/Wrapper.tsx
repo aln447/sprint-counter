@@ -31,10 +31,18 @@ const defaultSettings: TSettings = {
 
 export const Wrapper = () => {
     const [settings, setSettings] = useState<TSettings>(defaultSettings);
+    const [showSettings, setShowSettings] = useState<boolean>(true);
+
+    const toggleSettings = () => {
+        setShowSettings(!showSettings);
+    }
 
     return <StyledWrapper>
         <h2>I'm the wrapper</h2>
-        <Settings settings={settings} setSettings={setSettings} />
+        {showSettings
+            ? <Settings settings={settings} setSettings={setSettings} setShowSettings={setShowSettings} />
+            : <button onClick={toggleSettings}>Show Settings</button>
+        }
         <Counter />
     </StyledWrapper>;
 }
