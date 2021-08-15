@@ -1,6 +1,6 @@
 import React from 'react';
 import { FieldArrayWithId, UseFormRegister } from 'react-hook-form';
-import { WarriorForm } from '../WarriorForm';
+import { WarriorForm } from './WarriorForm';
 import { TSettings, TWarrior } from '../Wrapper';
 
 

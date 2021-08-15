@@ -1,9 +1,9 @@
 import react from 'react';
-import { TSettings } from './Wrapper';
+import { TSettings } from '../Wrapper';
 import { useForm, UseFormRegister } from 'react-hook-form';
-import { TextInput } from './inputs/TextInput';
-import { NumberInput } from './inputs/NumberInput';
-import { ColorInput } from './inputs/ColorInput';
+import { TextInput } from '../inputs/TextInput';
+import { NumberInput } from '../inputs/NumberInput';
+import { ColorInput } from '../inputs/ColorInput';
 
 type TWarriorFormProps = {
     register: UseFormRegister<TSettings>;

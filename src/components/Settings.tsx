@@ -3,7 +3,7 @@ import { TSettings, TWarrior } from './Wrapper';
 import { useFieldArray, useForm } from 'react-hook-form';
 import { TextInput } from './inputs/TextInput';
 import { NumberInput } from './inputs/NumberInput';
-import { WarriorForm } from './WarriorForm';
+import { WarriorForm } from './warriors/WarriorForm';
 import { ErrorMessage } from './utils/ErrorMessage';
 import { StyledSettings } from '../styled/StyledSettings';
 import { Warriors } from './warriors/Warriors';
