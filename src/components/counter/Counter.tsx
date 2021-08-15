@@ -1,5 +1,5 @@
 import react from 'react';
-import { TSettings } from './Wrapper';
+import { TSettings } from '../Wrapper';
 
 type CounterProps = {
     settings: TSettings;

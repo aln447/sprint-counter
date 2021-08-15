@@ -1,6 +1,6 @@
 import { Settings } from './Settings';
 import react from 'react';
-import { Counter } from './Counter';
+import { Counter } from './counter/Counter';
 import { useState } from 'react';
 import { StyledWrapper } from '../styled/StyledWrapper';
 
