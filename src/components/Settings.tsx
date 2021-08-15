@@ -6,17 +6,11 @@ import { NumberInput } from './inputs/NumberInput';
 import { WarriorForm } from './WarriorForm';
 import { ErrorMessage } from './utils/ErrorMessage';
 import { StyledSettings } from '../styled/StyledSettings';
+import { Warriors } from './warriors/Warriors';
 
 type SettingsProps = {
     settings: TSettings,
     setSettings: (settings: TSettings) => void;
-}
-
-const emptyWarrior: TWarrior = {
-    name: '',
-    slug: '',
-    pointsPerSprint: 0,
-    color: '',
 }
 
 const defaultSprintSettings: TSettings = {
@@ -54,16 +48,12 @@ export const Settings = (props: SettingsProps) => {
                 Length (days)
                 <NumberInput name='sprint.length' register={register} />
             </label>
-            <div className="warriors">
-                {fields.length === 0 && <p>No warriors yet. Add a few :)</p>}
-                {fields.map((field, index) => <WarriorForm
-                    key={field.id}
-                    index={index}
-                    register={register}
-                    remove={remove}
-                />)}
-                <button onClick={() => append(emptyWarrior)}>Add Warrior</button>
-            </div>
+            <Warriors
+                register={register}
+                fields={fields}
+                remove={remove}
+                append={append}
+            />
             <button type="submit">Save</button>
         </form>
     </StyledSettings>
