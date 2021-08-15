@@ -21,12 +21,24 @@ const emptyWarrior: TWarrior = {
 export const Warriors = ({ fields, register, remove, append }: WarriorsProps) => {
     return (<div className="warriors">
         {fields.length === 0 && <p>No warriors yet. Add a few :)</p>}
-        {fields.map((field, index) => <WarriorForm
-            key={field.id}
-            index={index}
-            register={register}
-            remove={remove}
-        />)}
+        <table>
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Points per sprint</td>
+                    <td>Color</td>
+                    <td>Actions</td>
+                </tr>
+            </thead>
+            <tbody>
+                {fields.map((field, index) => <WarriorForm
+                    key={field.id}
+                    index={index}
+                    register={register}
+                    remove={remove}
+                />)}
+            </tbody>
+        </table>
         <button onClick={() => append(emptyWarrior)}>Add Warrior</button>
     </div>)
 }
