@@ -8,12 +8,12 @@ type TextInputProps = {
     errorField?: FieldError;
     name: FieldPath<TSettings>;
     required: boolean;
-    labelName: string;
+    labelName?: string;
 }
 
 export const TextInput = ({ name, register, required, errorField, labelName }: TextInputProps) => {
     return (<label htmlFor={name}>
-        {labelName}
+        {labelName ?? ''}
         <input type="text" {...register(name, { required: (required ? "This field is required" : false) })} />
         <ErrorMessage error={errorField} />
     </label>);
