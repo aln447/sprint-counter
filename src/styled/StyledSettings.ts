@@ -13,7 +13,7 @@ export const StyledSettings = styled.div`
         margin: 5px 0;
 
         input {
-            margin-left: 20px;
+            margin-left: 10px;
             height: 20px;
             background-color: transparent;
             border: 2px solid var(--wht);
@@ -26,35 +26,35 @@ export const StyledSettings = styled.div`
                 outline: none;
             }
         }
+
+        .error-msg {
+            color: var(--orng1);
+        }
     }
 
     .warriors {
-        label, 
-        button {
-            display: inline-block;
-            width: auto;
-            margin-left: 5px;
-        }
-
-        label input:first-of-type {
-            margin-left: 0px;
-        }
-
         button {
             height: 20px;
         }
     }
 
     button {
-        background: white;
-        border: none;
-        box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        background: none;
+        border: 1px solid white;
+        color: white;
+        border-radius: 2px;
+        height: 26px;
         cursor: pointer;
+        transition: background 0.3s ease;
+
+        &:hover {
+            background: rgba(255,255,255,.1);
+        }
 
         &[type=submit] {
             margin-top: 20px;
             font-weight: bold;
-            padding: 15px;
+            height: 30px;
         }
     }
 `;

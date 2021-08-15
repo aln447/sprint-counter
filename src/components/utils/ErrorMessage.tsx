@@ -6,5 +6,5 @@ type ErrorMessageProps = {
 }
 
 export const ErrorMessage = ({ error }: ErrorMessageProps) => (
-    error ? <span> {error.message}</span> : <react.Fragment />
+    error ? <span className="error-msg"> {error.message}</span> : <react.Fragment />
 )

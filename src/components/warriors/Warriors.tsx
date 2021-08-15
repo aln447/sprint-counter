@@ -2,6 +2,7 @@ import React from 'react';
 import { FieldArrayWithId, UseFormRegister } from 'react-hook-form';
 import { WarriorForm } from './WarriorForm';
 import { TSettings, TWarrior } from '../Wrapper';
+import styled from 'styled-components';
 
 
 type WarriorsProps = {
@@ -18,10 +19,16 @@ const emptyWarrior: TWarrior = {
     color: '',
 }
 
+const TableStyled = styled.table`
+    tr td label input {
+        margin-left: 0;
+    }
+`;
+
 export const Warriors = ({ fields, register, remove, append }: WarriorsProps) => {
     return (<div className="warriors">
         {fields.length === 0 && <p>No warriors yet. Add a few :)</p>}
-        <table>
+        <TableStyled>
             <thead>
                 <tr>
                     <td>Name</td>
@@ -38,7 +45,7 @@ export const Warriors = ({ fields, register, remove, append }: WarriorsProps) =>
                     remove={remove}
                 />)}
             </tbody>
-        </table>
+        </TableStyled>
         <button onClick={() => append(emptyWarrior)}>Add Warrior</button>
     </div>)
 }
