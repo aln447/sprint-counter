@@ -43,6 +43,6 @@ export const Wrapper = () => {
             ? <Settings settings={settings} setSettings={setSettings} setShowSettings={setShowSettings} />
             : <button onClick={toggleSettings}>Show Settings</button>
         }
-        <Counter />
+        <Counter settings={settings} />
     </StyledWrapper>;
 }

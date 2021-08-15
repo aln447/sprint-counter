@@ -1,5 +1,10 @@
 import react from 'react';
+import { TSettings } from './Wrapper';
 
-export const Counter = () => {
+type CounterProps = {
+    settings: TSettings;
+};
+
+export const Counter = ({ settings }: CounterProps) => {
     return <div>I'm the counter</div>
 }
