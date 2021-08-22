@@ -36,9 +36,12 @@ const StyledTable = styled.table`
     }
 `;
 
-export const DayTable = ({ warriors, length }: DayTableProps) => {
+export const DayTable = ({ warriors, length, setWarriors }: DayTableProps) => {
     const updateWarriorScore = (index: number, score: number) => {
-        console.log(`I'll set ${score} for ${warriors[index].name}`);
+        const newWarriors = [...warriors];
+        warriors[index].score = score;
+
+        setWarriors(newWarriors);
     }
 
     return <StyledTable>
