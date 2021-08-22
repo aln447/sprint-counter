@@ -44,16 +44,19 @@ export const WarriorRow = ({ warrior: { name, color, additionals }, length, setS
         setDays(generateArrayOf(true, length));
     }
 
-    return <tr style={{ color }} className={`${getScore(days) === length ? 'filled' : ''}`}>
+    return <tr className={`${getScore(days) === length ? 'filled' : ''}`}>
+        <td className='table__color-cell'><div style={{ backgroundColor: color }}></div></td>
         <td>{name}</td>
-        {days.map((day, index) => <td className={`${day ? 'filled' : ''}`}>
-            <input type="checkbox" checked={day} key={index} onChange={(e) => handleDayClick(e, index)} />
-        </td>)}
+        {
+            days.map((day, index) => <td className={`${day ? 'filled' : ''}`}>
+                <input type="checkbox" checked={day} key={index} onChange={(e) => handleDayClick(e, index)} />
+            </td>)
+        }
         <td>
             {getScore(days)
                 ? <button onClick={handleClear}>clear</button>
                 : <button onClick={handleFill}>fill</button>
             }
         </td>
-    </tr>
+    </tr >
 }

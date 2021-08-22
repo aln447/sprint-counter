@@ -26,6 +26,12 @@ const StyledTable = styled.table`
             input {
                 cursor: pointer;
             }
+
+            &.table__color-cell div {
+                border-radius: 2px;
+                width: 10px;
+                height: 10px;
+            }
         }
     }
 `;
