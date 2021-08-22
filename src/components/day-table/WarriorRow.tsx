@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { css } from "styled-components";
 import { setSourceMapRange } from "typescript";
 import { TWarrior } from "../Wrapper";
@@ -12,6 +12,10 @@ type WarriorRowProps = {
 
 export const WarriorRow = ({ warrior: { name, color, additionals }, length, setScore }: WarriorRowProps) => {
     const [days, setDays] = useState<boolean[]>(Array(length).fill(0).map(() => false));
+
+    useEffect(() => {
+        setScore(days.filter(Boolean).length);
+    }, [days]);
 
     const fillDaysUntilIndex = (until: number) => {
         setDays(days.map((_, index) => index <= until));
@@ -27,7 +31,6 @@ export const WarriorRow = ({ warrior: { name, color, additionals }, length, setS
 
     const handleDayClick = (event: React.ChangeEvent, index: number) => {
         days.filter(Boolean).length ? toggleDay(index) : fillDaysUntilIndex(index);
-        setScore(index);
     }
 
     return <table style={{ color }}>
