@@ -1,6 +1,6 @@
 import { Settings } from './Settings';
 import react from 'react';
-import { Counter } from './counter/Counter';
+import { CounterWrapper } from './counter/CounterWrapper';
 import { useState } from 'react';
 import { StyledWrapper } from '../styled/StyledWrapper';
 
@@ -43,6 +43,6 @@ export const Wrapper = () => {
             ? <Settings settings={settings} setSettings={setSettings} setShowSettings={setShowSettings} />
             : <button onClick={toggleSettings}>Show Settings</button>
         }
-        <Counter settings={settings} />
+        <CounterWrapper settings={settings} />
     </StyledWrapper>;
 }
