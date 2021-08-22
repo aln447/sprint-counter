@@ -13,6 +13,10 @@ type WarriorRowProps = {
 export const WarriorRow = ({ warrior: { name, color, additionals }, length, setScore }: WarriorRowProps) => {
     const [days, setDays] = useState<boolean[]>(Array(length).fill(0).map(() => false));
 
+    const fillDaysUntilIndex = (until: number) => {
+        setDays(days.map((_, index) => index <= until));
+    }
+
     const toggleDay = (index: number) => {
         const newDays = [...days];
 
@@ -22,7 +26,7 @@ export const WarriorRow = ({ warrior: { name, color, additionals }, length, setS
     }
 
     const handleDayClick = (event: React.ChangeEvent, index: number) => {
-        toggleDay(index);
+        days.filter(Boolean).length ? toggleDay(index) : fillDaysUntilIndex(index);
         setScore(index);
     }
 
