@@ -4,11 +4,16 @@ import { CounterWrapper } from './counter/CounterWrapper';
 import { useState } from 'react';
 import { StyledWrapper } from '../styled/StyledWrapper';
 
+export type TAdditionalWarriorSetting = {
+    points: number;
+    reason: string;
+}
 export type TWarrior = {
     name: string;
     slug: string;
     color: string;
     pointsPerSprint: number;
+    additionals: TAdditionalWarriorSetting[];
 }
 
 export type TSprint = {
