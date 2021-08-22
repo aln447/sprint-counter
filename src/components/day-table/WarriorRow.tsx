@@ -11,13 +11,13 @@ type WarriorRowProps = {
 
 const generateArrayOf = (value: boolean, length: number) => Array(length).fill(0).map(() => value);
 
+const getScore = (days: boolean[]) => days.filter(Boolean).length;
+
 export const WarriorRow = ({ warrior: { name, color, additionals }, length, setScore }: WarriorRowProps) => {
-
-
     const [days, setDays] = useState<boolean[]>(generateArrayOf(false, length));
 
     useEffect(() => {
-        setScore(days.filter(Boolean).length);
+        setScore(getScore(days));
     }, [days]);
 
     const fillDaysUntilIndex = (until: number) => {
@@ -33,11 +33,15 @@ export const WarriorRow = ({ warrior: { name, color, additionals }, length, setS
     }
 
     const handleDayClick = (event: React.ChangeEvent, index: number) => {
-        days.filter(Boolean).length ? toggleDay(index) : fillDaysUntilIndex(index);
+        getScore(days) ? toggleDay(index) : fillDaysUntilIndex(index);
     }
 
     const handleClear = () => {
         setDays(generateArrayOf(false, length));
+    }
+
+    const handleFill = () => {
+        setDays(generateArrayOf(true, length));
     }
 
     return <tr style={{ color }}>
@@ -45,6 +49,11 @@ export const WarriorRow = ({ warrior: { name, color, additionals }, length, setS
         {days.map((day, index) => <td>
             <input type="checkbox" checked={day} key={index} onChange={(e) => handleDayClick(e, index)} />
         </td>)}
-        <td><button onClick={handleClear}>clear</button></td>
+        <td>
+            {getScore(days)
+                ? <button onClick={handleClear}>clear</button>
+                : <button onClick={handleFill}>fill</button>
+            }
+        </td>
     </tr>
 }
