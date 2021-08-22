@@ -30,7 +30,8 @@ export const Settings = (props: SettingsProps) => {
         control,
         name: 'warriors'
     })
-    const onSubmit = (newSettings: any) => {
+    const onSubmit = (newSettings: TSettings) => {
+        newSettings.sprint.length = parseInt(newSettings.sprint.length as unknown as string, 10);
         setSettings(newSettings);
         setShowSettings(false);
     }
