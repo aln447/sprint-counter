@@ -9,9 +9,12 @@ type WarriorRowProps = {
     setScore: (score: number) => void;
 };
 
+const generateArrayOf = (value: boolean, length: number) => Array(length).fill(0).map(() => value);
 
 export const WarriorRow = ({ warrior: { name, color, additionals }, length, setScore }: WarriorRowProps) => {
-    const [days, setDays] = useState<boolean[]>(Array(length).fill(0).map(() => false));
+
+
+    const [days, setDays] = useState<boolean[]>(generateArrayOf(false, length));
 
     useEffect(() => {
         setScore(days.filter(Boolean).length);
@@ -33,10 +36,15 @@ export const WarriorRow = ({ warrior: { name, color, additionals }, length, setS
         days.filter(Boolean).length ? toggleDay(index) : fillDaysUntilIndex(index);
     }
 
+    const handleClear = () => {
+        setDays(generateArrayOf(false, length));
+    }
+
     return <tr style={{ color }}>
         <td>{name}</td>
         {days.map((day, index) => <td>
             <input type="checkbox" checked={day} key={index} onChange={(e) => handleDayClick(e, index)} />
         </td>)}
+        <td><button onClick={handleClear}>clear</button></td>
     </tr>
 }
