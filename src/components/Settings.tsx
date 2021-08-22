@@ -23,6 +23,12 @@ const defaultSprintSettings: TSettings = {
 }
 
 
+const setSlugsForWarriors = (warriors: TWarrior[]) => [...warriors].map((warrior) => {
+    warrior.slug = warrior.name.replace(/\s+/g, '-').toLowerCase();
+
+    return warrior;
+})
+
 export const Settings = (props: SettingsProps) => {
     const { settings, setSettings, setShowSettings } = props;
     const { handleSubmit, register, control, formState: { errors } } = useForm({ defaultValues: defaultSprintSettings });
@@ -32,6 +38,8 @@ export const Settings = (props: SettingsProps) => {
     })
     const onSubmit = (newSettings: TSettings) => {
         newSettings.sprint.length = parseInt(newSettings.sprint.length as unknown as string, 10);
+        newSettings.warriors = setSlugsForWarriors(newSettings.warriors);
+
         setSettings(newSettings);
         setShowSettings(false);
     }
