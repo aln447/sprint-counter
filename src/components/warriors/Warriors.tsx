@@ -17,6 +17,7 @@ const emptyWarrior: TWarrior = {
     slug: '',
     pointsPerSprint: 0,
     color: '',
+    score: 0,
     additionals: [],
 }
 

@@ -13,6 +13,7 @@ export type TWarrior = {
     slug: string;
     color: string;
     pointsPerSprint: number;
+    score: number;
     additionals: TAdditionalWarriorSetting[];
 }
 
