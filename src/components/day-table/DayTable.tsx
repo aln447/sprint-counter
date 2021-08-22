@@ -15,7 +15,11 @@ export const DayTable = ({ warriors, length }: DayTableProps) => {
 
     return <table>
         <tbody>
-            {warriors.map((warrior, index) => <WarriorRow warrior={warrior} length={length} setScore={(score) => updateWarriorScore(index, score)} key={warrior.slug} />)}
+            {warriors.map((warrior, index) => <WarriorRow
+                warrior={warrior}
+                length={length}
+                setScore={(score) => updateWarriorScore(index, score)} key={warrior.slug}
+            />)}
         </tbody>
     </table>
 }
