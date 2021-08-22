@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import { TWarrior } from "../Wrapper";
 import { WarriorRow } from "./WarriorRow";
 
@@ -7,13 +8,34 @@ type DayTableProps = {
     length: number;
 };
 
+const StyledTable = styled.table`
+    tr {
+        background: var(--dkbl2);
+        &.filled {
+            background: var(--orng2);
+        }
+
+        td {
+            padding: 5px;
+            border-radius: 2px;
+
+            &.filled {
+                background: var(--orng2);
+            }
+
+            input {
+                cursor: pointer;
+            }
+        }
+    }
+`;
 
 export const DayTable = ({ warriors, length }: DayTableProps) => {
     const updateWarriorScore = (index: number, score: number) => {
         console.log(`I'll set ${score} for ${warriors[index].name}`);
     }
 
-    return <table>
+    return <StyledTable>
         <tbody>
             {warriors.map((warrior, index) => <WarriorRow
                 warrior={warrior}
@@ -21,5 +43,5 @@ export const DayTable = ({ warriors, length }: DayTableProps) => {
                 setScore={(score) => updateWarriorScore(index, score)} key={warrior.slug}
             />)}
         </tbody>
-    </table>
+    </StyledTable>
 }
