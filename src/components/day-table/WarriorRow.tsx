@@ -33,14 +33,10 @@ export const WarriorRow = ({ warrior: { name, color, additionals }, length, setS
         days.filter(Boolean).length ? toggleDay(index) : fillDaysUntilIndex(index);
     }
 
-    return <table style={{ color }}>
-        <tbody>
-            <tr>
-                <td>{name}</td>
-                {days.map((day, index) => <td>
-                    <input type="checkbox" checked={day} key={index} onChange={(e) => handleDayClick(e, index)} />
-                </td>)}
-            </tr>
-        </tbody>
-    </table>
+    return <tr style={{ color }}>
+        <td>{name}</td>
+        {days.map((day, index) => <td>
+            <input type="checkbox" checked={day} key={index} onChange={(e) => handleDayClick(e, index)} />
+        </td>)}
+    </tr>
 }

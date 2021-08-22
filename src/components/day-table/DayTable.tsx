@@ -13,7 +13,9 @@ export const DayTable = ({ warriors, length }: DayTableProps) => {
         console.log(`I'll set ${score} for ${warriors[index].name}`);
     }
 
-    return <div>
-        {warriors.map((warrior, index) => <WarriorRow warrior={warrior} length={length} setScore={(score) => updateWarriorScore(index, score)} key={warrior.slug} />)}
-    </div>
+    return <table>
+        <tbody>
+            {warriors.map((warrior, index) => <WarriorRow warrior={warrior} length={length} setScore={(score) => updateWarriorScore(index, score)} key={warrior.slug} />)}
+        </tbody>
+    </table>
 }
