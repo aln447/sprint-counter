@@ -14,7 +14,7 @@ export const Counter = ({ settings: { sprint: { name, length }, warriors } }: Co
     return <div>
         <h1>{name}</h1>
         <h3>Sprint length: {length} {getDayKeyword(length)}</h3>
-        <DayTable />
+        <DayTable warriors={warriors} />
         <ResultSet />
     </div>
 }
