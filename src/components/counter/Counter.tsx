@@ -22,6 +22,6 @@ export const Counter = ({ settings: { sprint: { name, length }, warriors: initia
         <h1>{name}</h1>
         <h3>Sprint length: {length} {getDayKeyword(length)}</h3>
         <DayTable warriors={warriors} setWarriors={setWarriors} length={length} />
-        <ResultSet />
+        <ResultSet warriors={warriors} length={length} />
     </StyledCounter>
 }
