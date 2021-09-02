@@ -7,6 +7,7 @@ import styled from 'styled-components';
 
 type CounterProps = {
     settings: TSettings;
+    setSettings: (settings: TSettings) => void;
 };
 
 const StyledCounter = styled.div`
@@ -15,8 +16,15 @@ const StyledCounter = styled.div`
 
 const getDayKeyword = (length: number) => length === 1 ? 'day' : 'days';
 
-export const Counter = ({ settings: { sprint: { name, length }, warriors: initialWarriors } }: CounterProps) => {
-    const [warriors, setWarriors] = useState<TWarrior[]>(initialWarriors);
+export const Counter = ({ settings, setSettings }: CounterProps) => {
+    const { sprint: { name, length }, warriors } = settings;
+
+    const setWarriors = (warriors: TWarrior[]) => {
+        const newSettings = { ...settings };
+        newSettings.warriors = warriors;
+
+        setSettings(newSettings);
+    }
 
     return <StyledCounter>
         <h1>{name}</h1>
