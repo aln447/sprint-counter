@@ -4,10 +4,11 @@ import { Counter } from './Counter';
 
 type CounterWrapperProps = {
     settings?: TSettings;
+    setSettings: (settings: TSettings) => void;
 };
 
-export const CounterWrapper = ({ settings }: CounterWrapperProps) => (
-    settings ? <Counter settings={settings} /> : <div>
+export const CounterWrapper = ({ settings, setSettings }: CounterWrapperProps) => (
+    settings ? <Counter settings={settings} setSettings={setSettings} /> : <div>
         Please provide the settings first
     </div>
 );

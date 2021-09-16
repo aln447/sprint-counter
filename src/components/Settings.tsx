@@ -7,6 +7,7 @@ import { WarriorForm } from './warriors/WarriorForm';
 import { ErrorMessage } from './utils/ErrorMessage';
 import { StyledSettings } from '../styled/StyledSettings';
 import { Warriors } from './warriors/Warriors';
+import { css } from 'styled-components';
 
 type SettingsProps = {
     settings: TSettings,
