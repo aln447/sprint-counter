@@ -15,15 +15,6 @@ type SettingsProps = {
     setShowSettings: (show: boolean) => void;
 }
 
-const defaultSprintSettings: TSettings = {
-    sprint: {
-        name: '',
-        length: 0,
-    },
-    warriors: [],
-}
-
-
 const setSlugsForWarriors = (warriors: TWarrior[]) => [...warriors].map((warrior) => {
     warrior.slug = warrior.name.replace(/\s+/g, '-').toLowerCase();
 
@@ -32,7 +23,7 @@ const setSlugsForWarriors = (warriors: TWarrior[]) => [...warriors].map((warrior
 
 export const Settings = (props: SettingsProps) => {
     const { settings, setSettings, setShowSettings } = props;
-    const { handleSubmit, register, control, formState: { errors } } = useForm({ defaultValues: defaultSprintSettings });
+    const { handleSubmit, register, control, formState: { errors } } = useForm({ defaultValues: settings });
     const { fields, append, remove } = useFieldArray({
         control,
         name: 'warriors'
@@ -44,6 +35,8 @@ export const Settings = (props: SettingsProps) => {
         setSettings(newSettings);
         setShowSettings(false);
     }
+
+    const { name, length } = settings.sprint;
 
     return <StyledSettings>
         <h2>Settings</h2>
