@@ -9,12 +9,13 @@ type TextInputProps = {
     name: FieldPath<TSettings>;
     required: boolean;
     labelName?: string;
+    defaultValue?: string;
 }
 
-export const TextInput = ({ name, register, required, errorField, labelName }: TextInputProps) => {
+export const TextInput = ({ name, register, required, errorField, labelName, defaultValue }: TextInputProps) => {
     return (<label htmlFor={name}>
         {labelName ?? ''}
-        <input type="text" {...register(name, { required: (required ? "This field is required" : false) })} />
+        <input type="text" {...register(name, { required: (required ? "This field is required" : false) })} defaultValue={defaultValue} />
         <ErrorMessage error={errorField} />
     </label>);
 }

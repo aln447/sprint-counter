@@ -50,7 +50,7 @@ export const Settings = (props: SettingsProps) => {
             />
             <label htmlFor="sprint.length">
                 Length (days)
-                <NumberInput name='sprint.length' register={register} />
+                <NumberInput name='sprint.length' register={register} defaultValue={length} />
             </label>
             <Warriors
                 register={register}

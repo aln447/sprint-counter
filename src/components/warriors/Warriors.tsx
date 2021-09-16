@@ -41,10 +41,11 @@ export const Warriors = ({ fields, register, remove, append }: WarriorsProps) =>
             </thead>
             <tbody>
                 {fields.map((field, index) => <WarriorForm
-                    key={field.id}
+                    key={field.slug}
                     index={index}
                     register={register}
                     remove={remove}
+                    field={field}
                 />)}
             </tbody>
         </TableStyled>

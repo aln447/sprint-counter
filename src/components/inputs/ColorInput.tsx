@@ -5,8 +5,9 @@ import { TSettings } from '../Wrapper';
 type ColorInputProps = {
     register: UseFormRegister<TSettings>;
     name: FieldPath<TSettings>;
+    defaultValue?: string;
 }
 
-export const ColorInput = ({ name, register }: ColorInputProps) => {
-    return (<input type="color" {...register(name)} />);
+export const ColorInput = ({ name, register, defaultValue }: ColorInputProps) => {
+    return (<input type="color" {...register(name)} defaultValue={defaultValue} />);
 }
