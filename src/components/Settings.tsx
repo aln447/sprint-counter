@@ -47,6 +47,7 @@ export const Settings = (props: SettingsProps) => {
                 required={true}
                 errorField={errors.sprint?.name}
                 register={register}
+                defaultValue={name}
             />
             <label htmlFor="sprint.length">
                 Length (days)
