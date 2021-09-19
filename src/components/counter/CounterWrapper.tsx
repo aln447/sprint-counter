@@ -2,7 +2,7 @@ import react from 'react';
 import { TSettings } from '../Wrapper';
 import { Counter } from './Counter';
 
-type CounterWrapperProps = {
+interface CounterWrapperProps {
     settings?: TSettings;
     setSettings: (settings: TSettings) => void;
 };

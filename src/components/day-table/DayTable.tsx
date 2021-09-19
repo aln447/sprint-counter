@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { TWarrior } from "../Wrapper";
 import { WarriorRow } from "./WarriorRow";
 
-type DayTableProps = {
+interface DayTableProps {
     warriors: TWarrior[];
     setWarriors: (warriors: TWarrior[]) => void;
     length: number;

@@ -4,7 +4,7 @@ import { setSourceMapRange } from "typescript";
 import { TWarrior } from "../Wrapper";
 import { Additonals } from "./Additionals";
 
-type WarriorRowProps = {
+interface WarriorRowProps {
     warrior: TWarrior;
     length: number;
     setScore: (score: number) => void;

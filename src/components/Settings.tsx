@@ -9,7 +9,7 @@ import { StyledSettings } from '../styled/StyledSettings';
 import { Warriors } from './warriors/Warriors';
 import { css } from 'styled-components';
 
-type SettingsProps = {
+interface SettingsProps {
     settings: TSettings,
     setSettings: (settings: TSettings) => void;
     setShowSettings: (show: boolean) => void;

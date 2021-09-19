@@ -5,7 +5,7 @@ import { TSettings, TWarrior } from '../Wrapper';
 import styled, { css } from 'styled-components';
 
 
-type WarriorsProps = {
+interface WarriorsProps {
     fields: TWarrior[];
     register: UseFormRegister<TSettings>;
     remove: (index: number) => void;

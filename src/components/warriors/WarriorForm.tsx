@@ -4,7 +4,7 @@ import { FieldValues, useForm, UseFormRegister } from 'react-hook-form';
 import { TextInput } from '../inputs/TextInput';
 import { NumberInput } from '../inputs/NumberInput';
 import { ColorInput } from '../inputs/ColorInput';
-type TWarriorFormProps = {
+interface TWarriorFormProps {
     register: UseFormRegister<TSettings>;
     remove: (index: number) => void;
     index: number;

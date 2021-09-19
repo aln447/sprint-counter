@@ -5,7 +5,7 @@ import { DayTable } from '../day-table/DayTable';
 import { ResultSet } from './ResultSet';
 import styled from 'styled-components';
 
-type CounterProps = {
+interface CounterProps {
     settings: TSettings;
     setSettings: (settings: TSettings) => void;
 };
