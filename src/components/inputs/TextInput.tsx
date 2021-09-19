@@ -1,15 +1,12 @@
 import react from 'react';
-import { FieldError, FieldPath, UseFormRegister } from 'react-hook-form';
+import { FieldError } from 'react-hook-form';
 import { ErrorMessage } from '../utils/ErrorMessage';
-import { TSettings } from '../Wrapper';
+import { InputProps } from './interfaces';
 
-type TextInputProps = {
-    register: UseFormRegister<TSettings>;
+interface TextInputProps extends InputProps<string> {
     errorField?: FieldError;
-    name: FieldPath<TSettings>;
     required: boolean;
     labelName?: string;
-    defaultValue?: string;
 }
 
 export const TextInput = ({ name, register, required, errorField, labelName, defaultValue }: TextInputProps) => {
