@@ -1,5 +1,3 @@
-import react, { useState } from 'react';
-import { getAllJSDocTags } from 'typescript';
 import { TSettings, TWarrior } from '../Wrapper';
 import { DayTable } from '../day-table/DayTable';
 import { ResultSet } from './ResultSet';

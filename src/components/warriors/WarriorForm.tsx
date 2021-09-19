@@ -1,6 +1,5 @@
-import react from 'react';
 import { TSettings, TWarrior } from '../Wrapper';
-import { FieldValues, useForm, UseFormRegister } from 'react-hook-form';
+import { UseFormRegister } from 'react-hook-form';
 import { TextInput } from '../inputs/TextInput';
 import { NumberInput } from '../inputs/NumberInput';
 import { ColorInput } from '../inputs/ColorInput';

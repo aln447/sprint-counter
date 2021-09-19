@@ -1,4 +1,3 @@
-import react from 'react';
 import { TSettings } from '../Wrapper';
 import { Counter } from './Counter';
 

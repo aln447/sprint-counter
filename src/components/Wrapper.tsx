@@ -1,5 +1,4 @@
 import { Settings } from './Settings';
-import react from 'react';
 import { CounterWrapper } from './counter/CounterWrapper';
 import { useState } from 'react';
 import { StyledWrapper } from '../styled/StyledWrapper';

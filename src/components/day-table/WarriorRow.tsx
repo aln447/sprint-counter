@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { css } from "styled-components";
-import { setSourceMapRange } from "typescript";
+import { useEffect, useState } from "react";
 import { TWarrior } from "../Wrapper";
 import { Additonals } from "./Additionals";
 

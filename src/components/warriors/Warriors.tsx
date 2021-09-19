@@ -1,8 +1,7 @@
-import React from 'react';
-import { FieldArrayWithId, UseFormRegister } from 'react-hook-form';
+import { UseFormRegister } from 'react-hook-form';
 import { WarriorForm } from './WarriorForm';
 import { TSettings, TWarrior } from '../Wrapper';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 
 interface WarriorsProps {

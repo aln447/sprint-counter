@@ -1,4 +1,3 @@
-import react from 'react';
 import { InputProps } from './interfaces';
 
 export const NumberInput = ({ name, register, defaultValue }: InputProps<number>) => {

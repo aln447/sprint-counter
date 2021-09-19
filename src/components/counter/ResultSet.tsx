@@ -1,5 +1,3 @@
-import React from "react";
-import styled, { css } from "styled-components";
 import { TWarrior } from "../Wrapper";
 
 type ResultSetProps = {
@@ -19,5 +17,5 @@ export const ResultSet = ({ warriors, length }: ResultSetProps) => {
         <ul>
             {warriors.map(({ score, name }) => <li>{score} points for {name}</li>)}
         </ul>
-    </div> : <React.Fragment />
+    </div> : <></>
 }

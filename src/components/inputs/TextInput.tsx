@@ -1,4 +1,3 @@
-import react from 'react';
 import { FieldError } from 'react-hook-form';
 import { ErrorMessage } from '../utils/ErrorMessage';
 import { InputProps } from './interfaces';
