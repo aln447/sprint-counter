@@ -2,11 +2,11 @@ import React from 'react';
 import { FieldArrayWithId, UseFormRegister } from 'react-hook-form';
 import { WarriorForm } from './WarriorForm';
 import { TSettings, TWarrior } from '../Wrapper';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 
 type WarriorsProps = {
-    fields: FieldArrayWithId[];
+    fields: TWarrior[];
     register: UseFormRegister<TSettings>;
     remove: (index: number) => void;
     append: (warrior: TWarrior) => void;
