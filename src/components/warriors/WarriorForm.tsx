@@ -11,7 +11,6 @@ interface TWarriorFormProps {
 };
 
 export const WarriorForm = ({ index, register, remove, field }: TWarriorFormProps) => {
-    console.log(field)
     return <tr>
         <td>
             <TextInput
