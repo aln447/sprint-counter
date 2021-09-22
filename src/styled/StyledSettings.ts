@@ -12,7 +12,12 @@ export const StyledSettings = styled.div`
         display: block;
         margin: 5px 0;
 
-        input {
+        .error-msg {
+            color: var(--orng1);
+        }
+    }
+
+    input {
             margin-left: 10px;
             height: 20px;
             background-color: transparent;
@@ -26,11 +31,6 @@ export const StyledSettings = styled.div`
                 outline: none;
             }
         }
-
-        .error-msg {
-            color: var(--orng1);
-        }
-    }
 
     .warriors {
         button {
