@@ -19,6 +19,6 @@ export const Additionals = ({ index, field }: AdditionalsProps) => {
     }
 
     return <>
-        <button onClick={handleToggleForm} title="Add/subtract additional points">+</button>
+        <button onClick={handleToggleForm} title="Add/subtract additional points">{field?.points ?? '+'}</button>
     </>
 }
