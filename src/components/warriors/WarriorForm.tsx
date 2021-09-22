@@ -35,6 +35,7 @@ export const WarriorForm = ({ index, register, remove, field, control }: TWarrio
             <ColorInput name={`warriors.${index}.color`} register={register} defaultValue={field.color} />
         </td>
         {fields.map((additionalsField, index) => <Additionals field={additionalsField} index={index} />)}
+        <Additionals index={fields.length} />
         <td>
             <button onClick={() => remove(index)}>Delete</button>
         </td>
