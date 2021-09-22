@@ -63,8 +63,8 @@ export const Additionals = ({ warriorIndex, index, field, register, defaultOpen 
             <button>Save</button>
             <button>Delete</button>
         </span>}
-        <button onClick={handleToggleForm} title="Add/subtract additional points">
-            {field?.points ?? '+'}
+        <button onClick={handleToggleForm}>
+            {field?.points}
         </button>
     </StyledAdditionals>
 }

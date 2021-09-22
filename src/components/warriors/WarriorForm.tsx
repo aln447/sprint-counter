@@ -15,6 +15,12 @@ interface TWarriorFormProps {
 export const WarriorForm = ({ index, register, remove, field, control }: TWarriorFormProps) => {
     const { fields, append, remove: removeAdditional } = useFieldArray({ control, name: `warriors.${index}.additionals` });
 
+    const handleAppend = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+
+        append({});
+    }
+
     return <tr>
         <td>
             <TextInput
@@ -42,7 +48,7 @@ export const WarriorForm = ({ index, register, remove, field, control }: TWarrio
             register={register}
             removeAdditional={removeAdditional}
         />)}
-        <Additionals index={fields.length} warriorIndex={index} register={register} removeAdditional={removeAdditional} />
+        <button onClick={handleAppend}>+</button>
         <td>
             <button onClick={() => remove(index)}>Delete</button>
         </td>
