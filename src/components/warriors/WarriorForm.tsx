@@ -3,6 +3,7 @@ import { Control, useFieldArray, useFormContext, UseFormRegister } from 'react-h
 import { TextInput } from '../inputs/TextInput';
 import { NumberInput } from '../inputs/NumberInput';
 import { ColorInput } from '../inputs/ColorInput';
+import { Additionals } from './Additionals';
 interface TWarriorFormProps {
     register: UseFormRegister<TSettings>;
     remove: (index: number) => void;
@@ -33,6 +34,7 @@ export const WarriorForm = ({ index, register, remove, field, control }: TWarrio
         <td>
             <ColorInput name={`warriors.${index}.color`} register={register} defaultValue={field.color} />
         </td>
+        {fields.map((additionalsField, index) => <Additionals field={additionalsField} index={index} />)}
         <td>
             <button onClick={() => remove(index)}>Delete</button>
         </td>
