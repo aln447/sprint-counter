@@ -54,6 +54,7 @@ export const Settings = (props: SettingsProps) => {
                 fields={fields}
                 remove={remove}
                 append={append}
+                control={control}
             />
             <button type="submit">Save</button>
         </form>

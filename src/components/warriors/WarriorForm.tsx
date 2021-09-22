@@ -1,5 +1,5 @@
 import { TSettings, TWarrior } from '../Wrapper';
-import { UseFormRegister } from 'react-hook-form';
+import { Control, useFieldArray, useFormContext, UseFormRegister } from 'react-hook-form';
 import { TextInput } from '../inputs/TextInput';
 import { NumberInput } from '../inputs/NumberInput';
 import { ColorInput } from '../inputs/ColorInput';
@@ -8,9 +8,12 @@ interface TWarriorFormProps {
     remove: (index: number) => void;
     index: number;
     field: TWarrior
+    control: Control<TSettings>;
 };
 
-export const WarriorForm = ({ index, register, remove, field }: TWarriorFormProps) => {
+export const WarriorForm = ({ index, register, remove, field, control }: TWarriorFormProps) => {
+    const { fields } = useFieldArray({ control, name: `warriors.${index}.additionals` });
+
     return <tr>
         <td>
             <TextInput
