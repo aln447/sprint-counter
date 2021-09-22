@@ -13,7 +13,7 @@ interface TWarriorFormProps {
 };
 
 export const WarriorForm = ({ index, register, remove, field, control }: TWarriorFormProps) => {
-    const { fields } = useFieldArray({ control, name: `warriors.${index}.additionals` });
+    const { fields, append, remove: removeAdditional } = useFieldArray({ control, name: `warriors.${index}.additionals` });
 
     return <tr>
         <td>
@@ -34,8 +34,15 @@ export const WarriorForm = ({ index, register, remove, field, control }: TWarrio
         <td>
             <ColorInput name={`warriors.${index}.color`} register={register} defaultValue={field.color} />
         </td>
-        {fields.map((additionalsField, i) => <Additionals field={additionalsField} index={i} key={i} warriorIndex={index} register={register} />)}
-        <Additionals index={fields.length} warriorIndex={index} register={register} />
+        {fields.map((additionalsField, i) => <Additionals
+            field={additionalsField}
+            index={i}
+            key={i}
+            warriorIndex={index}
+            register={register}
+            removeAdditional={removeAdditional}
+        />)}
+        <Additionals index={fields.length} warriorIndex={index} register={register} removeAdditional={removeAdditional} />
         <td>
             <button onClick={() => remove(index)}>Delete</button>
         </td>
