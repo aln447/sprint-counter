@@ -1,4 +1,4 @@
-import { UseFormRegister } from 'react-hook-form';
+import { Control, UseFormRegister } from 'react-hook-form';
 import { WarriorForm } from './WarriorForm';
 import { TSettings, TWarrior } from '../Wrapper';
 import styled from 'styled-components';
@@ -9,6 +9,7 @@ interface WarriorsProps {
     register: UseFormRegister<TSettings>;
     remove: (index: number) => void;
     append: (warrior: TWarrior) => void;
+    control: Control<TSettings>;
 };
 
 const emptyWarrior: TWarrior = {
@@ -26,7 +27,7 @@ const TableStyled = styled.table`
     }
 `;
 
-export const Warriors = ({ fields, register, remove, append }: WarriorsProps) => {
+export const Warriors = ({ fields, register, remove, append, control }: WarriorsProps) => {
     return (<div className="warriors">
         {fields.length === 0 && <p>No warriors yet. Add a few :)</p>}
         <TableStyled>
@@ -45,6 +46,7 @@ export const Warriors = ({ fields, register, remove, append }: WarriorsProps) =>
                     register={register}
                     remove={remove}
                     field={field}
+                    control={control}
                 />)}
             </tbody>
         </TableStyled>
