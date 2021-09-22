@@ -13,7 +13,7 @@ interface AdditionalsProps {
     register: UseFormRegister<TSettings>;
 }
 
-const AdditionalsPopup = styled.span``;
+const StyledAdditionals = styled.td``;
 
 export const Additionals = ({ warriorIndex, index, field, register }: AdditionalsProps) => {
     const [showForm, setShowForm] = useState<boolean>(false);
@@ -24,8 +24,8 @@ export const Additionals = ({ warriorIndex, index, field, register }: Additional
         setShowForm(!showForm);
     }
 
-    return <td>
-        {showForm && <AdditionalsPopup>
+    return <StyledAdditionals>
+        {showForm && <span>
             <NumberInput
                 name={`warriors.${warriorIndex}.additionals.${index}.points`}
                 defaultValue={field?.points}
@@ -37,9 +37,9 @@ export const Additionals = ({ warriorIndex, index, field, register }: Additional
                 register={register}
                 required={true}
             />
-        </AdditionalsPopup>}
+        </span>}
         <button onClick={handleToggleForm} title="Add/subtract additional points">
             {field?.points ?? '+'}
         </button>
-    </td>
+    </StyledAdditionals>
 }
