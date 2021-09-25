@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ReactFragment, useState } from "react";
 import { useFormContext, UseFormRegister } from "react-hook-form";
 import styled from "styled-components";
 import { InputProps } from "../inputs/interfaces";
@@ -13,7 +13,7 @@ interface AdditionalsProps {
     register: UseFormRegister<TSettings>;
     defaultOpen?: boolean;
     removeAdditional: (index: number) => void;
-    append: (value: TAdditionalWarriorSetting) => void;
+    append: (value: Partial<TAdditionalWarriorSetting>) => void;
 }
 
 const StyledAdditionals = styled.td`
@@ -39,13 +39,26 @@ const StyledAdditionals = styled.td`
     }
 `;
 
-export const Additionals = ({ warriorIndex, index, field, register, append, defaultOpen = false }: AdditionalsProps) => {
+export const Additionals = ({ warriorIndex, index, field, register, append, removeAdditional, defaultOpen = false }: AdditionalsProps) => {
     const [showForm, setShowForm] = useState<boolean>(defaultOpen);
 
     const handleToggleForm = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
 
         setShowForm(!showForm);
+    }
+
+    const handleAddNew = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+
+        // since the inputs are already registered we only want to close the form and append a new empty field;
+        append({});
+        setShowForm(false);
+    }
+
+    const handleDelete = (event: React.MouseEvent<HTMLButtonElement>) => {
+        removeAdditional(index);
+        setShowForm(false);
     }
 
     return <StyledAdditionals>
@@ -61,8 +74,8 @@ export const Additionals = ({ warriorIndex, index, field, register, append, defa
                 register={register}
                 required={true}
             />
-            <button>Save</button>
-            <button>Delete</button>
+            <button onClick={handleAddNew}>Save</button>
+            <button onClick={handleDelete}>Delete</button>
         </span>}
         <button onClick={handleToggleForm}>
             {field?.points}
