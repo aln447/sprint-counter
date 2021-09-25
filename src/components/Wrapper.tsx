@@ -27,10 +27,36 @@ export type TSettings = {
 }
 
 const defaultSettings: TSettings = {
-    warriors: [],
+    warriors: [
+        {
+            name: 'Andrew',
+            slug: 'andr',
+            color: 'red',
+            pointsPerSprint: 8,
+            additionals: [],
+            score: 0,
+        }, {
+            name: 'Adam',
+            slug: 'adn',
+            color: 'blue',
+            pointsPerSprint: 8,
+            additionals: [],
+            score: 0,
+        }, {
+            name: 'Mike',
+            slug: 'mk',
+            color: 'green',
+            pointsPerSprint: 4,
+            additionals: [{
+                points: -1,
+                reason: 'Laziness',
+            }],
+            score: 0,
+        }
+    ],
     sprint: {
-        name: '',
-        length: 0,
+        name: 'Cool sprint',
+        length: 5,
     }
 };
 
