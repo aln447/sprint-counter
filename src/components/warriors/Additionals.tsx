@@ -13,6 +13,7 @@ interface AdditionalsProps {
     register: UseFormRegister<TSettings>;
     defaultOpen?: boolean;
     removeAdditional: (index: number) => void;
+    append: (value: TAdditionalWarriorSetting) => void;
 }
 
 const StyledAdditionals = styled.td`
@@ -38,7 +39,7 @@ const StyledAdditionals = styled.td`
     }
 `;
 
-export const Additionals = ({ warriorIndex, index, field, register, defaultOpen = false }: AdditionalsProps) => {
+export const Additionals = ({ warriorIndex, index, field, register, append, defaultOpen = false }: AdditionalsProps) => {
     const [showForm, setShowForm] = useState<boolean>(defaultOpen);
 
     const handleToggleForm = (event: React.MouseEvent<HTMLButtonElement>) => {
