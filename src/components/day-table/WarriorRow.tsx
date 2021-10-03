@@ -47,7 +47,7 @@ export const WarriorRow = ({ warrior: { name, pointsPerSprint, color, additional
         <td className='table__color-cell'><div style={{ backgroundColor: color }}></div></td>
         <td>{name} ({pointsPerSprint})</td>
         {
-            days.map((day, index) => <td className={`${day ? 'filled' : ''}`}>
+            days.map((day, index) => <td className={`${day ? 'filled' : ''}`} key={index}>
                 <input type="checkbox" checked={day} key={index} onChange={(e) => handleDayClick(e, index)} />
             </td>)
         }
