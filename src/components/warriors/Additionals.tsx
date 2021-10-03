@@ -1,5 +1,5 @@
 import React, { ReactFragment, useState } from "react";
-import { useFormContext, UseFormRegister } from "react-hook-form";
+import { useFormContext, UseFormRegister, useWatch } from "react-hook-form";
 import styled from "styled-components";
 import { InputProps } from "../inputs/interfaces";
 import { NumberInput } from "../inputs/NumberInput";
@@ -42,6 +42,13 @@ const StyledAdditionals = styled.td`
 export const Additionals = ({ warriorIndex, index, field, register, append, removeAdditional, defaultOpen = false }: AdditionalsProps) => {
     const [showForm, setShowForm] = useState<boolean>(!field?.points);
 
+    const { control } = useFormContext();
+    const watchedPoints = useWatch({
+        name: `warriors.${warriorIndex}.additionals.${index}.points`,
+        control,
+        defaultValue: field?.points,
+    });
+
     const handleToggleForm = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
 
@@ -52,8 +59,9 @@ export const Additionals = ({ warriorIndex, index, field, register, append, remo
         event.preventDefault();
 
         // since the inputs are already registered we only want to close the form and append a new empty field;
-        append({});
-        setShowForm(false);
+        if (watchedPoints) {
+            setShowForm(false);
+        }
     }
 
     const handleDelete = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -78,7 +86,7 @@ export const Additionals = ({ warriorIndex, index, field, register, append, remo
             <button onClick={handleDelete}>Delete</button>
         </span>}
         <button onClick={handleToggleForm}>
-            {field?.points}
+            {watchedPoints}
         </button>
     </StyledAdditionals>
 }
