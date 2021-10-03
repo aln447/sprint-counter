@@ -49,7 +49,8 @@ export const DayTable = ({ warriors, length, setWarriors }: DayTableProps) => {
             {warriors.map((warrior, index) => <WarriorRow
                 warrior={warrior}
                 length={length}
-                setScore={(score) => updateWarriorScore(index, score)} key={warrior.slug}
+                setScore={(score) => updateWarriorScore(index, score)}
+                key={index}
             />)}
         </tbody>
     </StyledTable>
