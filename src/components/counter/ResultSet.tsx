@@ -9,10 +9,19 @@ const sum = (accumulator: number, currentValue: number) => accumulator + current
 
 
 export const ResultSet = ({ warriors, length }: ResultSetProps) => {
-    const score = warriors.map((warrior) => warrior.score).reduce(sum);
+    let score = 0;
+    let additionalScore = 0;
+
+    warriors.forEach((warrior) => {
+        additionalScore += warrior.additionals.length
+            ? warrior.additionals.map((additional) => additional.points).reduce(sum)
+            : 0;
+
+        score += warrior.score;
+    });
 
     return !!score ? <div>
-        <h2>Points for this sprint: <strong>{score}</strong></h2>
+        <h2>Points for this sprint: <strong>{score + additionalScore}</strong></h2>
         <h4>Explanation:</h4>
         <ul>
             {warriors.map(({ score, name }) => <li>{score} points for {name}</li>)}
