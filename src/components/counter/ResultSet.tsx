@@ -27,7 +27,7 @@ export const ResultSet = ({ warriors, length }: ResultSetProps) => {
             {warriors.map(({ score, name, additionals }) => {
                 return <li>{score} points for {name} {
                     additionals.length
-                        ? additionals.map(({ points, reason }) => <span>{points} for {reason}; </span>)
+                        ? <span> with {additionals.map(({ points, reason }) => `${points} for ${reason}; `)}</span>
                         : ''
                 } </li>
             })}
