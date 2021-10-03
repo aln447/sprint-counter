@@ -40,7 +40,7 @@ const StyledAdditionals = styled.td`
 `;
 
 export const Additionals = ({ warriorIndex, index, field, register, append, removeAdditional, defaultOpen = false }: AdditionalsProps) => {
-    const [showForm, setShowForm] = useState<boolean>(defaultOpen);
+    const [showForm, setShowForm] = useState<boolean>(!field?.points);
 
     const handleToggleForm = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
