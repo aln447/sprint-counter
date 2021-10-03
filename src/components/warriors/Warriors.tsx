@@ -36,7 +36,7 @@ export const Warriors = ({ fields, register, remove, append, control }: Warriors
                     <td>Name</td>
                     <td>Points per sprint</td>
                     <td>Color</td>
-                    <td>Actions</td>
+                    <td>Additional points</td>
                 </tr>
             </thead>
             <tbody>
