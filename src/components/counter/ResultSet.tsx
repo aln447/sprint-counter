@@ -14,7 +14,7 @@ export const ResultSet = ({ warriors, length }: ResultSetProps) => {
 
     warriors.forEach((warrior) => {
         additionalScore += warrior.additionals.length
-            ? warrior.additionals.map((additional) => additional.points).reduce(sum)
+            ? warrior.additionals.map((additional) => +additional.points).reduce(sum)
             : 0;
 
         score += warrior.score;
