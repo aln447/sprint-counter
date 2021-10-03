@@ -12,7 +12,7 @@ const generateArrayOf = (value: boolean, length: number) => Array(length).fill(0
 
 const getScore = (days: boolean[]) => days.filter(Boolean).length;
 
-export const WarriorRow = ({ warrior: { name, color, additionals }, length, setScore }: WarriorRowProps) => {
+export const WarriorRow = ({ warrior: { name, pointsPerSprint, color, additionals }, length, setScore }: WarriorRowProps) => {
     const [days, setDays] = useState<boolean[]>(generateArrayOf(false, length));
 
     useEffect(() => {
@@ -45,7 +45,7 @@ export const WarriorRow = ({ warrior: { name, color, additionals }, length, setS
 
     return <tr className={`${getScore(days) === length ? 'filled' : ''}`}>
         <td className='table__color-cell'><div style={{ backgroundColor: color }}></div></td>
-        <td>{name}</td>
+        <td>{name} ({pointsPerSprint})</td>
         {
             days.map((day, index) => <td className={`${day ? 'filled' : ''}`}>
                 <input type="checkbox" checked={day} key={index} onChange={(e) => handleDayClick(e, index)} />
