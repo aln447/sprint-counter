@@ -7,10 +7,11 @@ type ResultSetProps = {
 
 const sum = (accumulator: number, currentValue: number) => accumulator + currentValue;
 
-
 export const ResultSet = ({ warriors, length }: ResultSetProps) => {
     let score = 0;
     let additionalScore = 0;
+
+    const getScorePerWarrior = (warrior: TWarrior) => warrior.score * warrior.pointsPerSprint / length;
 
     warriors.forEach((warrior) => {
         if (!warrior.score) {
@@ -21,18 +22,18 @@ export const ResultSet = ({ warriors, length }: ResultSetProps) => {
             ? warrior.additionals.map((additional) => +additional.points).reduce(sum)
             : 0;
 
-        score += warrior.score;
+        score += getScorePerWarrior(warrior);
     });
 
     return !!score ? <div>
         <h2>Points for this sprint: <strong>{score + additionalScore}</strong></h2>
         <h4>Explanation:</h4>
         <ul>
-            {warriors.map(({ score, name, additionals }, index) => {
-                return score
-                    ? <li key={index}>{score} points for {name} {
-                        additionals.length
-                            ? <span> with {additionals.map(({ points, reason }, aIndex) => <span key={aIndex}>{points} for {reason}</span>)}</span>
+            {warriors.map((warrior, index) => {
+                return warrior.score
+                    ? <li key={index}>{getScorePerWarrior(warrior)} points for {warrior.name} {
+                        warrior.additionals.length
+                            ? <span> with {warrior.additionals.map(({ points, reason }, aIndex) => <span key={aIndex}>{points} for {reason}</span>)}</span>
                             : ''
                     } </li>
                     : '';
