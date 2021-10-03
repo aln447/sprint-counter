@@ -49,7 +49,7 @@ export const WarriorForm = ({ index, register, remove, field, control }: TWarrio
             removeAdditional={removeAdditional}
             append={append}
         />)}
-        <button onClick={handleAppendNew}>+</button>
+        <td><button onClick={handleAppendNew}>+</button></td>
         <td>
             <button onClick={() => remove(index)}>Delete</button>
         </td>
