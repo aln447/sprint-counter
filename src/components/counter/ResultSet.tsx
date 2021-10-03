@@ -24,11 +24,11 @@ export const ResultSet = ({ warriors, length }: ResultSetProps) => {
         <h2>Points for this sprint: <strong>{score + additionalScore}</strong></h2>
         <h4>Explanation:</h4>
         <ul>
-            {warriors.map(({ score, name, additionals }) => {
+            {warriors.map(({ score, name, additionals }, index) => {
                 return score
-                    ? <li>{score} points for {name} {
+                    ? <li key={index}>{score} points for {name} {
                         additionals.length
-                            ? <span> with {additionals.map(({ points, reason }) => `${points} for ${reason}; `)}</span>
+                            ? <span> with {additionals.map(({ points, reason }, aIndex) => <span key={aIndex}>{points} for {reason}</span>)}</span>
                             : ''
                     } </li>
                     : '';
