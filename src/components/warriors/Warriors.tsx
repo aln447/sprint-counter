@@ -41,7 +41,7 @@ export const Warriors = ({ fields, register, remove, append, control }: Warriors
             </thead>
             <tbody>
                 {fields.map((field, index) => <WarriorForm
-                    key={field.slug}
+                    key={index}
                     index={index}
                     register={register}
                     remove={remove}
