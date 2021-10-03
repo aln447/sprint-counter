@@ -13,7 +13,7 @@ export const ResultSet = ({ warriors, length }: ResultSetProps) => {
     let additionalScore = 0;
 
     warriors.forEach((warrior) => {
-        additionalScore += warrior.additionals.length
+        additionalScore += warrior.score && warrior.additionals.length
             ? warrior.additionals.map((additional) => +additional.points).reduce(sum)
             : 0;
 
@@ -25,11 +25,13 @@ export const ResultSet = ({ warriors, length }: ResultSetProps) => {
         <h4>Explanation:</h4>
         <ul>
             {warriors.map(({ score, name, additionals }) => {
-                return <li>{score} points for {name} {
-                    additionals.length
-                        ? <span> with {additionals.map(({ points, reason }) => `${points} for ${reason}; `)}</span>
-                        : ''
-                } </li>
+                return score
+                    ? <li>{score} points for {name} {
+                        additionals.length
+                            ? <span> with {additionals.map(({ points, reason }) => `${points} for ${reason}; `)}</span>
+                            : ''
+                    } </li>
+                    : '';
             })}
         </ul>
     </div> : <></>
